@@ -10,3 +10,22 @@ for (let heartIcon of heartIcons) {
   });
 }
 
+const callButtons = document.getElementsByClassName("call-btn");
+
+for (const callButton of callButtons) {
+  callButton.addEventListener("click", function () {
+    // Get the parent card of the clicked button
+    const card = callButton.closest(".card");
+
+
+    // Get the subtitle and number inside this card
+    const subTitleText = card.getElementsByClassName("sub-title")[0].innerText;
+    const phoneNumberText = card.getElementsByClassName("phn-number")[0].innerText;
+
+    // Show the result
+    alert(`📞 Calling ${subTitleText} at ${phoneNumberText}`);
+  });
+}
+
+
+
