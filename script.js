@@ -75,8 +75,16 @@ for(const button of copyButtons){
 
     const phoneNumberText = card.getElementsByClassName("phn-number")[0].innerText;
 
-    
-
-    
+     // ✅ Copy to clipboard
+    navigator.clipboard.writeText(phoneNumberText)
+      .then(() => {
+        alert(`✅ Copied number: ${phoneNumberText}`);
+        let currentCount = parseInt(copyCount.innerText);
+        copyCount.innerText = currentCount + 1;
+      })
+      .catch(err => {
+        alert("❌ Failed to copy number.");
+        console.error(err);
+      });
 })
 }
